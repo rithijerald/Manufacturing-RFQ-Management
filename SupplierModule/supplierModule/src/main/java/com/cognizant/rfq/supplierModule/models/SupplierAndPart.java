@@ -1,38 +1,24 @@
 package com.cognizant.rfq.supplierModule.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Supplier {
+public class SupplierAndPart {
 	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name="partid")
 	private Integer partId;
-	
 	private String name;
 	private String email;
-	
 	private String phone;
 	private String location;
 	private Integer feedback;
+	private String partName;
 	private Integer quantity;
-	
-	@Column(name="timetosupply")
 	private Integer timeToSupply;
 	
-	public Supplier() {
+	public SupplierAndPart() {
 		super();
 	}
 
-	public Supplier(Integer partId, String name, String email, String phone, String location, Integer feedback,
-			Integer quantity, Integer timeToSupply) {
+	public SupplierAndPart(Integer partId, String name, String email, String phone, String location, Integer feedback,
+			String partName, Integer quantity, Integer timeToSupply) {
 		super();
 		this.partId = partId;
 		this.name = name;
@@ -40,12 +26,13 @@ public class Supplier {
 		this.phone = phone;
 		this.location = location;
 		this.feedback = feedback;
+		this.partName = partName;
 		this.quantity = quantity;
 		this.timeToSupply = timeToSupply;
 	}
 
-	public Supplier(Integer id, Integer partId, String name, String email, String phone, String location,
-			Integer feedback, Integer quantity, Integer timeToSupply) {
+	public SupplierAndPart(Integer id, Integer partId, String name, String email, String phone, String location,
+			Integer feedback, String partName, Integer quantity, Integer timeToSupply) {
 		super();
 		this.id = id;
 		this.partId = partId;
@@ -54,6 +41,7 @@ public class Supplier {
 		this.phone = phone;
 		this.location = location;
 		this.feedback = feedback;
+		this.partName = partName;
 		this.quantity = quantity;
 		this.timeToSupply = timeToSupply;
 	}
@@ -114,6 +102,14 @@ public class Supplier {
 		this.feedback = feedback;
 	}
 
+	public String getPartName() {
+		return partName;
+	}
+
+	public void setPartName(String partName) {
+		this.partName = partName;
+	}
+
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -131,6 +127,5 @@ public class Supplier {
 	}
 	
 	
-	
-	
+
 }

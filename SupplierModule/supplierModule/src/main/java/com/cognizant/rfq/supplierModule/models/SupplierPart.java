@@ -1,34 +1,55 @@
 package com.cognizant.rfq.supplierModule.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="supplierpart")
 public class SupplierPart {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="partid")
 	private int partId;
-	private int supplierId;
-	private int quantity;
-	private int time;
+	
+	@Column(name="partname")
+	private String partName;
+	
+	public SupplierPart(String partName) {
+		super();
+		this.partName=partName;
+	}
+	
+	
+	public SupplierPart(int partId, String partName) {
+		super();
+		this.partId = partId;
+		this.partName = partName;
+	}
+	
+	public SupplierPart() {
+		super();
+	}
+
+
+	
+	
+	public String getPartName() {
+		return partName;
+	}
+	public void setPartName(String partName) {
+		this.partName = partName;
+	}
 	public int getPartId() {
 		return partId;
 	}
 	public void setPartId(int partId) {
 		this.partId = partId;
 	}
-	public int getSupplierId() {
-		return supplierId;
-	}
-	public void setSupplierId(int supplierId) {
-		this.supplierId = supplierId;
-	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	public int getTime() {
-		return time;
-	}
-	public void setTime(int time) {
-		this.time = time;
-	}
+	
 	
 }
