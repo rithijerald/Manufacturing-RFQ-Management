@@ -8,78 +8,51 @@ import javax.persistence.Id;
 
 @Entity
 public class Supplier {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
-	@Column(name="partid")
-	private Integer partId;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "supplierid")
+	private int supplierId;
+
 	private String name;
+
 	private String email;
-	
+
 	private String phone;
+
 	private String location;
-	private Integer feedback;
-	private Integer quantity;
-	
-	@Column(name="timetosupply")
-	private Integer timeToSupply;
-	
+
+	private int feedback;
+
 	public Supplier() {
 		super();
 	}
 
-	public Supplier(Integer partId, String name, String email, String phone, String location, Integer feedback,
-			Integer quantity, Integer timeToSupply) {
+	public Supplier(int supplierId, int feedback) {
 		super();
-		this.partId = partId;
+		this.supplierId = supplierId;
+		this.feedback = feedback;
+	}
+
+	public Supplier(String name, String email, String phone, String location, int feedback) {
+		super();
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.location = location;
 		this.feedback = feedback;
-		this.quantity = quantity;
-		this.timeToSupply = timeToSupply;
 	}
+	
+	
 
-	public Supplier(Integer id, Integer partId, String name, String email, String phone, String location,
-			Integer feedback, Integer quantity, Integer timeToSupply) {
+	public Supplier(int supplierId, String name, String email, String phone, String location, int feedback) {
 		super();
-		this.id = id;
-		this.partId = partId;
+		this.supplierId = supplierId;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.location = location;
 		this.feedback = feedback;
-		this.quantity = quantity;
-		this.timeToSupply = timeToSupply;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getPartId() {
-		return partId;
-	}
-
-	public void setPartId(Integer partId) {
-		this.partId = partId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getEmail() {
@@ -98,6 +71,22 @@ public class Supplier {
 		this.phone = phone;
 	}
 
+	public int getSupplierId() {
+		return supplierId;
+	}
+
+	public void setSupplierId(int supplierId) {
+		this.supplierId = supplierId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getLocation() {
 		return location;
 	}
@@ -106,31 +95,12 @@ public class Supplier {
 		this.location = location;
 	}
 
-	public Integer getFeedback() {
+	public int getFeedback() {
 		return feedback;
 	}
 
-	public void setFeedback(Integer feedback) {
+	public void setFeedback(int feedback) {
 		this.feedback = feedback;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
-	public Integer getTimeToSupply() {
-		return timeToSupply;
-	}
-
-	public void setTimeToSupply(Integer timeToSupply) {
-		this.timeToSupply = timeToSupply;
-	}
-	
-	
-	
-	
 }

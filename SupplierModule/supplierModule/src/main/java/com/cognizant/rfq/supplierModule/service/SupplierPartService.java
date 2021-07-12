@@ -1,5 +1,7 @@
 package com.cognizant.rfq.supplierModule.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +18,8 @@ public class SupplierPartService {
 	@Autowired
 	private SupplierPartRepo supplierPartRepo;
 	
-	public SupplierPart save(SupplierPart supplierPart) {
-		log.info("Inside save of SupplierPart Service");
-		return supplierPartRepo.save(supplierPart);
-	}
-	
-	public SupplierPart findById(Integer partId) {
-		log.info("Inside findById of SupplierPart Service");
-		return supplierPartRepo.findById(partId).get();
+	public List<SupplierPart> findAll(){
+		log.info("Inside findAll of SupplierPart Service");
+		return supplierPartRepo.findAll();
 	}
 }
