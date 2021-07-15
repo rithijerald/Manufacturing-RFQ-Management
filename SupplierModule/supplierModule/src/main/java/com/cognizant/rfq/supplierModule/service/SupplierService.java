@@ -38,7 +38,7 @@ public class SupplierService {
 			int id = supplierpart.getPartId();
 			if(partId==id) {
 				int supplierId = supplierpart.getSupplierId();
-				Supplier supplier = supplierRepo.findById(supplierId).get();
+				Supplier supplier = supplierRepo.getOne(supplierId);
 				supplierList.add(supplier);
 			}
 		}
@@ -46,7 +46,7 @@ public class SupplierService {
 	}
 	
 	public Supplier addSupplier(Supplier supplier) {
-		log.info("Inside save of Supplier Service");
+		log.info("Inside addSupplier of Supplier Service");
 		return supplierRepo.save(supplier);
 	}
 	
@@ -63,7 +63,7 @@ public class SupplierService {
 	
 	public void updateFeedback(Supplier supplier) {
 		log.info("Inside update feedback of supplier service");
-		Supplier updateSupplier = supplierRepo.findById(supplier.getSupplierId()).get();
+		Supplier updateSupplier = supplierRepo.getOne(supplier.getSupplierId());
 		updateSupplier.setFeedback(supplier.getFeedback());
 		supplierRepo.save(updateSupplier);
 	}

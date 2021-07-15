@@ -19,6 +19,8 @@ import org.springframework.http.HttpStatus;
 
 import com.cognizant.rfq.supplierModule.exception.PartNotFountException;
 import com.cognizant.rfq.supplierModule.models.Supplier;
+import com.cognizant.rfq.supplierModule.models.SupplierDTO;
+import com.cognizant.rfq.supplierModule.models.SuppliersList;
 import com.cognizant.rfq.supplierModule.service.SupplierService;
 
 @RestController
@@ -45,31 +47,50 @@ public class SupplierController {
 	}
 
 	@GetMapping("/getSupplierOfPart/{partId}")
-	public ResponseEntity<List<Supplier>> getSupplierOfPart(@PathVariable int partId) {
+	public ResponseEntity<SuppliersList> getSupplierOfPart(@PathVariable int partId) {
 		log.info("Inside getSupplierOfPart of Supplier Controller");
 		List<Supplier> supplierList = supplierService.getSupplierOfPart(partId);
+		SuppliersList list = new SuppliersList();
+		list.setSupplierList(supplierList);
 		try {
 			if (supplierList.isEmpty()) {
 				throw new PartNotFountException("No Part Found");
 			}
-			return new ResponseEntity<List<Supplier>>(supplierList, HttpStatus.OK);
+			return new ResponseEntity<SuppliersList>(list, HttpStatus.OK);
 		} catch (PartNotFountException e) {
-			return new ResponseEntity<List<Supplier>>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<SuppliersList>(HttpStatus.NOT_FOUND);
 		}
 
 	}
 
 	@PostMapping("/addSupplier")
-	public ResponseEntity<Supplier> addSupplier(@RequestBody Supplier supplier) {
+	public ResponseEntity<Supplier> addSupplier(@RequestBody SupplierDTO supplierDto) {
 		log.info("Inside addSupplier of Supplier Controller");
+
+		Supplier supplier = new Supplier();
+		supplier.setName(supplierDto.getName());
+		supplier.setEmail(supplierDto.getEmail());
+		supplier.setLocation(supplierDto.getLocation());
+		supplier.setPhone(supplierDto.getPhone());
+		supplier.setFeedback(supplierDto.getFeedback());
+
 		supplierService.addSupplier(supplier);
 		return new ResponseEntity<Supplier>(supplier, HttpStatus.OK);
 	}
 
 	@PostMapping("/editSupplier")
-	public ResponseEntity<Supplier> editSupplier(@RequestBody Supplier supplier) {
+	public ResponseEntity<Supplier> editSupplier(@RequestBody SupplierDTO supplierDto) {
 		log.info("Inside editSupplier of Supplier Controller");
 		try {
+
+			Supplier supplier = new Supplier();
+			supplier.setSupplierId(supplierDto.getSupplierId());
+			supplier.setName(supplierDto.getName());
+			supplier.setEmail(supplierDto.getEmail());
+			supplier.setLocation(supplierDto.getLocation());
+			supplier.setPhone(supplierDto.getPhone());
+			supplier.setFeedback(supplierDto.getFeedback());
+
 			supplierService.editSupplier(supplier);
 			return new ResponseEntity<Supplier>(supplier, HttpStatus.OK);
 		} catch (EntityNotFoundException e) {
@@ -78,9 +99,14 @@ public class SupplierController {
 	}
 
 	@PostMapping("/updateFeedback")
-	public ResponseEntity<String> updateFeedback(@RequestBody Supplier supplier) {
+	public ResponseEntity<String> updateFeedback(@RequestBody SupplierDTO supplierDto) {
 		log.info("Inside updateFeedback of Supplier Controller");
 		try {
+
+			Supplier supplier = new Supplier();
+			supplier.setSupplierId(supplierDto.getSupplierId());
+			supplier.setFeedback(supplierDto.getFeedback());
+
 			supplierService.updateFeedback(supplier);
 			return new ResponseEntity<String>("Feedback Updated", HttpStatus.OK);
 
