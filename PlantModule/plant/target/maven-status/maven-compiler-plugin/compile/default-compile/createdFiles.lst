@@ -1,0 +1,12 @@
+com\cts\plant\model\PlantReorderDetails.class
+com\cts\plant\repo\ReorderRulesRepository.class
+com\cts\plant\repo\PlantReorderDetailsRepository.class
+com\cts\config\SwaggerConfiguration.class
+com\cts\plant\controller\plantController.class
+com\cts\plant\model\Demand.class
+com\cts\plant\repo\DemandRepository.class
+com\cts\plant\model\Part.class
+com\cts\plant\repo\PartRepository.class
+com\cts\plant\model\ReorderRules.class
+com\cts\plant\PlantApplication.class
+com\cts\plant\service\PlantService.class
