@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+.bg-img{
+	background-image: linear-gradient(105deg, #1a1c1f, #000040) !important;
+	 background-size: cover;
+        background-position-y: center;
+         background-position-x: center;
+         backdrop-filter: blur(8px);
+	-moz-backdrop-filter: blur(10px);
+}
+.btn:hover,a.btn:hover {
+	background-color: rgb(0, 0, 0);
+	color: white !important;
+	box-shadow: 0 3px 5px rgb(0, 0, 32);
+}
+.fsize{
+	font-size:20px;
+}
+.btn,a.btn {
+	background-image: linear-gradient(45deg, rgb(0, 0, 32), rgb(0, 0, 0));
+    border-radius: 1.00rem !important;
+    border-color: rgb(0, 0, 64) !important;
+	color: white !important;
+	width:50%;
+}
+#layoutAuthentication {
+	display: flex;
+	flex-direction: column;
+	min-height: 0vh;
+}
+
+#layoutAuthentication_content {
+	min-width: 0;
+	flex-grow: 1;
+}
+

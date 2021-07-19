@@ -1,0 +1,37 @@
+@charset "ISO-8859-1";
+
+.btn:hover,a.btn:hover {
+	background-color: rgb(0, 0, 64);
+	color: white !important;
+	box-shadow: 0 3px 5px rgb(0, 0, 32);
+}
+
+.btn,a.btn {
+	background-image: linear-gradient(45deg, rgb(0, 0, 32), rgb(0, 0, 64));
+    border-radius: 1.00rem !important;
+    border-color: rgb(0, 0, 64) !important;
+	color: white !important;
+	width:40%;
+}
+
+.bg_home {
+	background-color: #000040;
+	height: 667px;
+}
+
+.row {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+.bg_home-2 {
+	background-image: linear-gradient(105deg, rgb(0, 0, 32), rgb(0, 0, 64)) !important;
+	background-size: cover;
+	background-position-y: center;
+}
+.carousel-item img{
+	height: 100vh;
+	width: 100%!important;
+	padding:40px;
+	padding: 30px 60px 70px 60px;
+}

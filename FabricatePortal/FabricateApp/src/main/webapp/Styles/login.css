@@ -1,0 +1,84 @@
+@charset "ISO-8859-1";
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+.uicon{
+	font-family:helvetica, "FontAwesome",sans-serif;
+}
+.uicon::placeholder{
+	content:"f406";
+}
+.in{
+	color:#000040;
+	
+}
+.container {
+	padding: 50px;
+}
+
+.card {
+	border: none !important;
+}
+
+body {
+	padding-top: 113px;
+	padding-bottom: 70px;
+	background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vjItPblLOfleeXV4WkH9dQcACcgjFup7sxvQpskmRrYmHchn0S_oZZY&s=10);
+	background-size: cover;
+	backdrop-filter: blur(8px);
+	-moz-backdrop-filter: blur(10px);
+	height: 100vh !important;
+}
+
+.bg_login-1 {
+	background-image: linear-gradient(105deg, #1a1c1f, rgb(0, 0, 64)) !important;
+}
+
+.bg_login-2 {
+	background-color: #fff;
+}
+
+.login {
+	padding: 11px 0px;
+}
+
+.login-h4, .login-p {
+	padding: 10px 0px;
+}
+
+.login-h4 {
+	white-space: nowrap;
+	font-family: 'Poppins', sans-serif;
+	color: #f9fafb;
+	font-size: 40px;
+}
+
+.login-p {
+	font-size: 19px;
+	color: #f9fafb;
+}
+
+.reg {
+	padding: 70px 25px;
+}
+
+.reg-h4 {
+	color: #000040;
+}
+
+.btn:hover,a.btn:hover {
+	background-color: rgb(0, 0, 115);
+	color: white !important;
+	box-shadow: 0 3px 5px #000040;
+}
+
+.btn,a.btn {
+	background-image: linear-gradient(45deg, rgb(0, 0, 64), #00366c);
+    border-radius: 1.00rem !important;
+    border-color: #bd0a95 !important;
+	color: white !important;
+	width:45%;
+	
+}
+.form-control:focus {
+	box-shadow: none !important;
+	border-color: #f3a284;
+}
